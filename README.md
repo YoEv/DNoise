@@ -1,10 +1,8 @@
 # DNoise
 
 
-# Notebook of DNoise Processor 
-
-## Downloaded Packages 
+## Notebook of DNoise Processor 
+### Downloaded Packages 
 - Json
-
-## Needed packages 
+### Needed packages 
 - Touchaudio
