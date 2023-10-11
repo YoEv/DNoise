@@ -3,6 +3,7 @@
 
 ## Notebook of DNoise Processor 
 ### Downloaded Packages 
-- Json
+- Json `conda install -c jmcmurray json`
+- Pathlib2 `conda install -c anaconda pathlib2`
 ### Needed packages 
 - Touchaudio
