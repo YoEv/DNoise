@@ -9,5 +9,6 @@
 - collections-extensions `pip install collections-extended`
 - torchaudio `conda install -c pytorch torchaudio`
 - PyTorch `conda install -c pytorch pytorch`
+- julius `pip install julius`
 ### Needed packages 
 - 
