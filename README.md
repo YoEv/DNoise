@@ -20,11 +20,11 @@
 - `utils.py`
 
 #### Setup Distributed Training Env
-- `distrib.py
+- `distrib.py`
   - This is a little bit wierd, it only check whether the `world_size == 1`, and it always returns.
   - Also, I changed in the Colab file of this to AMD with ROMs, and kept the CUDA one there. 
 - 'executor.py'
-  - 
+  - ..
 
 #### Model Built
 - `resample.py`
