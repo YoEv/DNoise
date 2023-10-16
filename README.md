@@ -19,4 +19,8 @@
 - `dsp.py` - `hz_to_mel`, `mel_to_hz`, `mel_frequencies(n_mels, fmin, fmax)`, NEED TO CHANGE `convert_audio_channels`,   `def __repr__(self):` #Changed LowPassFilters
 - `utils.py`
 #### Model Built
-- `resample` 
+- `resample.py`
+  - Upsampling the input by 2 using sinc interpolation.
+    Smith, Julius, and Phil Gossett. "A flexible sampling-rate conversion method."
+    ICASSP'84. IEEE International Conference on Acoustics, Speech, and Signal Processing.
+    Vol. 9. IEEE, 1984. 
