@@ -13,6 +13,10 @@
 
 
 ### Learnt Python Files
+#### Datasetup
 - `audio.py`
 - `data.py`
+- `dsp.py` - `hz_to_mel`, `mel_to_hz`, `mel_frequencies(n_mels, fmin, fmax)`, NEED TO CHANGE `convert_audio_channels`,   `def __repr__(self):` #Changed LowPassFilters
 - `utils.py`
+#### Model Built
+- `resample` 
