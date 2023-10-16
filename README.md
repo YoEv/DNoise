@@ -10,5 +10,9 @@
 - torchaudio `conda install -c pytorch torchaudio`
 - PyTorch `conda install -c pytorch pytorch`
 - julius `pip install julius`
-### Needed packages 
-- 
+
+
+### Learnt Python Files
+- `audio.py`
+- `data.py`
+- `utils.py`
