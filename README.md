@@ -18,6 +18,14 @@
 - `data.py`
 - `dsp.py` - `hz_to_mel`, `mel_to_hz`, `mel_frequencies(n_mels, fmin, fmax)`, NEED TO CHANGE `convert_audio_channels`,   `def __repr__(self):` #Changed LowPassFilters
 - `utils.py`
+
+#### Setup Distributed Training Env
+- `distrib.py
+  - This is a little bit wierd, it only check whether the `world_size == 1`, and it always returns.
+  - Also, I changed in the Colab file of this to AMD with ROMs, and kept the CUDA one there. 
+- 'executor.py'
+  - 
+
 #### Model Built
 - `resample.py`
   - Upsampling the input by 2 using sinc interpolation.
@@ -25,4 +33,4 @@
     ICASSP'84. IEEE International Conference on Acoustics, Speech, and Signal Processing.
     Vol. 9. IEEE, 1984.
   - 1-dimensional convolution operation. `out = F.conv1d(x.view(-1, 1, time), kernel, padding=zeros)[..., 1:].view(*other, time)`
-  -   
+
