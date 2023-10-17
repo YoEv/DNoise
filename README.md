@@ -23,7 +23,7 @@
 - `distrib.py`
   - This is a little bit wierd, it only check whether the `world_size == 1`, and it always returns.
   - Also, I changed in the Colab file of this to AMD with ROMs, and kept the CUDA one there. 
-- 'executor.py'
+- `executor.py`
   - Use hydra to control the training configurate to better locate and manage different modules while training.
   - Run on CUDA GPU - Consider to change or not neccessary. - It takes more work to do so. 
 
@@ -35,7 +35,8 @@
     Vol. 9. IEEE, 1984.
   - 1-dimensional convolution operation. `out = F.conv1d(x.view(-1, 1, time), kernel, padding=zeros)[..., 1:].view(*other, time)`
 - `demucs.py`
-  - 
+  - .
+  - `def valid_length` to make sure that under the every lenth of audio files, the Convolution finished with every steps, which could be seen as the remainder of division is 0.
  
 #### Setup Needed
 - `setup.py`
