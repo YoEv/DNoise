@@ -15,7 +15,7 @@
 ### Learnt Python Files
 #### Datasetup
 - `audio.py` - for processing audio data sets, as well as some helper functions and named tuples for processing audio file information。
-- `data.py`
+- `data.py` - Process noisy and clean audio data sets, match noise and clean audio data, sort, read data stored in JSON files, match noise and clean audio into pairs, obtain length information of the data set.
 - `dsp.py` - `hz_to_mel`, `mel_to_hz`, `mel_frequencies(n_mels, fmin, fmax)`, NEED TO CHANGE `convert_audio_channels`,   `def __repr__(self):` #Changed LowPassFilters
 - `utils.py`
 - **Collected Data**
