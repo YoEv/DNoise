@@ -14,10 +14,15 @@
 
 ### Learnt Python Files
 #### Datasetup
-- `audio.py`
+- `audio.py` - for processing audio data sets, as well as some helper functions and named tuples for processing audio file information。
 - `data.py`
 - `dsp.py` - `hz_to_mel`, `mel_to_hz`, `mel_frequencies(n_mels, fmin, fmax)`, NEED TO CHANGE `convert_audio_channels`,   `def __repr__(self):` #Changed LowPassFilters
 - `utils.py`
+- **Collected Data**
+- <img width="633" alt="LogicDNoise" src="https://github.com/YoEv/DNoise/assets/98185075/4a60bb82-c259-4563-bf14-fd0d0aeaae64">
+- <img width="672" alt="AudioFile" src="https://github.com/YoEv/DNoise/assets/98185075/ca7462db-876b-4085-a09c-8ee3f5173a16">
+
+
 
 #### Setup Distributed Training Env
 - `distrib.py`
