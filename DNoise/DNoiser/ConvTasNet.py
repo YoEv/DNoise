@@ -184,3 +184,76 @@ class ConvTasNetWithTransformerBLSTM(nn.Module):
 
         x = x[..., :length]
         return std * x
+
+
+
+
+class ConvTasNet(nn.Module):
+    # 其他方法和属性...
+
+
+
+
+    
+    def separate_frame(self, frame):
+        skips = []
+        next_state = []
+        first = self.conv_state is None
+        stride = self.stride * self.resample
+        x = frame.unsqueeze(0)  # 添加一个维度，表示batch_size为1
+        for idx, encode in enumerate(self.encoder):
+            stride //= self.stride
+            length = x.shape[2]
+            if idx == self.depth - 1:
+                # This is slightly faster for the last conv
+                x = fast_conv(encode[0], x)
+                x = encode[1](x)
+                x = fast_conv(encode[2], x)
+                x = encode[3](x)
+            else:
+                if not first:
+                    prev = self.conv_state.pop(0)
+                    prev = prev[..., stride:]
+                    tgt = (length - self.kernel_size) // self.stride + 1
+                    missing = tgt - prev.shape[-1]
+                    offset = length - self.kernel_size - self.stride * (missing - 1)
+                    x = x[..., offset:]
+                x = encode[1](encode[0](x))
+                x = fast_conv(encode[2], x)
+                x = encode[3](x)
+                if not first:
+                    x = torch.cat([prev, x], -1)
+                next_state.append(x)
+            skips.append(x)
+
+        x = x.permute(2, 0, 1)
+        x, self.lstm_state = self.lstm(x, self.lstm_state)
+        x = x.permute(1, 2, 0)
+
+        extra = None
+        for idx, decode in enumerate(self.decoder):
+            skip = skips.pop(-1)
+            x += skip[..., :x.shape[-1]]
+            x = fast_conv(decode[0], x)
+            x = decode[1](x)
+
+            if extra is not None:
+                skip = skip[..., x.shape[-1]:]
+                extra += skip[..., :extra.shape[-1]]
+                extra = decode[2](decode[1](decode[0](extra)))
+            x = decode[2](x)
+            next_state.append(x[..., -self.stride:] - decode[2].bias.view(-1, 1))
+            if extra is None:
+                extra = x[..., -self.stride:]
+            else:
+                extra[..., :self.stride] += next_state[-1]
+            x = x[..., :-self.stride]
+
+            if not first:
+                prev = self.conv_state.pop(0)
+                x[..., :self.stride] += prev
+            if idx != self.depth - 1:
+                x = decode[3](x)
+                extra = decode[3](extra)
+        self.conv_state = next_state
+        return x[0], extra[0]
