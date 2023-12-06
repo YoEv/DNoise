@@ -2,11 +2,8 @@ defaults:
   - dset: debug.yaml
   - hydra/job_logging: colorlog
   - hydra/hydra_logging: colorlog
-#  - /home/heisnproph11/pyProject/denoiser/conf/dset/debug.yaml
-#  - /home/heisnproph11/pyProject/denoiser/outputs/exp_/.hydra/config.yaml
   - /Volumes/Castile/HackerProj/denoiserC/conf/dset/debug.yaml
   - /Volumes/Castile/HackerProj/denoiserC/conf/config.yaml
-#  - /home/heisnproph11/pyProject/denoiser/outputs/exp_/.hydra/hydra.yaml
   - _self_
 
 # Dataset related
