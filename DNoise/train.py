@@ -32,8 +32,8 @@ def run(args):  # 参数为args
 
     import os
 
-    clean_folder = '/home/heisnproph11/pyProject/denoiser/train/clean'
-    noise_folder = '/home/heisnproph11/pyProject/denoiser/train/noisy'
+    clean_folder = '/Volumes/Castile/HackerProj/denoiserC/train/clean'
+    noise_folder = '/Volumes/Castile/HackerProj/denoiserC/train/noisy'
 
 
     clean_files = [os.path.join(clean_folder, file) for file in os.listdir(clean_folder) if file.endswith('.wav')]
